@@ -9,5 +9,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /extra-volume/cultural-repo/production/joai-project-config
+    path: /cultural-repo/production/joai-project-config
     type: DirectoryOrCreate

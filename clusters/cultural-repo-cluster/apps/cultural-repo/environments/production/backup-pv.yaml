@@ -4,7 +4,7 @@ metadata:
   name: backup-pv
 spec:
   hostPath:
-    path: /extra-volume/cultural-repo/production/backups
+    path: /cultural-repo/production/backups
     type: DirectoryOrCreate
 
 
@@ -16,5 +16,5 @@ metadata:
   name: restore-pv
 spec:
   hostPath:
-    path: /extra-volume/cultural-repo/production/restore
+    path: /cultural-repo/production/restore
     type: DirectoryOrCreate

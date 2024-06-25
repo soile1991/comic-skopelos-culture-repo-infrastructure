@@ -9,6 +9,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /extra-volume/cultural-repo/production/database
+    path: /cultural-repo/production/database
     type: DirectoryOrCreate
 
