@@ -30,7 +30,7 @@ spec:
         namespace: cert-manager
       interval: 1m
   values:
-    groupName: 'acme.vatopedianheritage.gr'
+    groupName: 'acme.skopelos.gr'
     certManager:
       namespace: cert-manager
       serviceAccountName: cert-manager
