@@ -26,12 +26,12 @@ configMapGenerator:
   - name: backend-config
     behavior: merge
     literals:
-      - ALLOWED_HOSTS=api.repo.vatopedianheritage.gr,.api.repo.vatopedianheritage.gr
-      - APP_DOMAINS=api.repo.vatopedianheritage.gr
-      # - DJANGO_CORS_ALLOWED_ORIGINS='https://app.repo.vatopedianheritage.gr'
-      # - DJANGO_CORS_ORIGIN_WHITELIST='https://app.repo.vatopedianheritage.gr'
+      - ALLOWED_HOSTS=api.repo.skopelos.gr,.api.repo.skopelos.gr
+      - APP_DOMAINS=api.repo.skopelos.gr
+      # - DJANGO_CORS_ALLOWED_ORIGINS='https://app.repo.skopelos.gr'
+      # - DJANGO_CORS_ORIGIN_WHITELIST='https://app.repo.skopelos.gr'
       - SECRET_KEY='cultural-repo-prod-@1*b@n_=%!r2y)!o^2hegt-sfv8%1b8tfvj$m2jhk#s#@-=hgfdghsjw'
-      - FRONTEND_URL='https://app.repo.vatopedianheritage.gr'
+      - FRONTEND_URL='https://app.repo.skopelos.gr'
       - SQL_HOST=postgres-production
       - EMAIL_USE_TLS=True
       - EMAIL_HOST=smtp.gmail.com
@@ -42,9 +42,9 @@ configMapGenerator:
   - name: frontend-config
     behavior: merge
     literals:
-      - BACKEND_URL=api.repo.vatopedianheritage.gr
+      - BACKEND_URL=api.repo.skopelos.gr
       - HTTP=https
-      - FRONTEND_DOMAIN=app.repo.vatopedianheritage.gr
+      - FRONTEND_DOMAIN=app.repo.skopelos.gr
 
   - name: backup-config
     behavior: merge

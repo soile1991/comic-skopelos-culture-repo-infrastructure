@@ -8,11 +8,11 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "api.repo.vatopedianheritage.gr"
-        - "vatopedi.api.repo.vatopedianheritage.gr"
+        - "api.repo.skopelos.gr"
+        - "vatopedi.api.repo.skopelos.gr"
       secretName: cultural-repo-app-tls-backend
   rules:
-    - host: "api.repo.vatopedianheritage.gr"
+    - host: "api.repo.skopelos.gr"
       http:
         paths:
           - path: /
@@ -29,7 +29,7 @@ spec:
                 name: nginx-media-server-service
                 port:
                   number: 80
-    - host: "vatopedi.api.repo.vatopedianheritage.gr"
+    - host: "vatopedi.api.repo.skopelos.gr"
       http:
         paths:
           - path: /

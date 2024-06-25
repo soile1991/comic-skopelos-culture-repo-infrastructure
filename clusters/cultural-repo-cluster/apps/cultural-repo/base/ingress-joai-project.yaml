@@ -52,5 +52,5 @@ metadata:
 spec:
   redirectRegex:
     permanent: true
-    regex: "^https://oai-pmh.repo.vatopedianheritage.gr[/]?$"
-    replacement: "https://oai-pmh.repo.vatopedianheritage.gr/provider"
+    regex: "^https://oai-pmh.repo.skopelos.gr[/]?$"
+    replacement: "https://oai-pmh.repo.skopelos.gr/provider"

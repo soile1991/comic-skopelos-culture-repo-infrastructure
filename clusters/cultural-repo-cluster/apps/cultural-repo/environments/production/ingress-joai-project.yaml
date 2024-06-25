@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "oai-pmh.repo.vatopedianheritage.gr"
+        - "oai-pmh.repo.skopelos.gr"
       secretName: cultural-repo-app-tls-joai-project
   rules:
-    - host: "oai-pmh.repo.vatopedianheritage.gr"
+    - host: "oai-pmh.repo.skopelos.gr"
       http:
         paths:
           - path: /

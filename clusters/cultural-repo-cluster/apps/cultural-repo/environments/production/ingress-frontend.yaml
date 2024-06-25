@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - 'viewer.app.repo.vatopedianheritage.gr'
+      - 'viewer.app.repo.skopelos.gr'
       secretName: cultural-repo-app-tls-frontend
   rules:
-  - host: 'viewer.app.repo.vatopedianheritage.gr'
+  - host: 'viewer.app.repo.skopelos.gr'
     http:
       paths:
         - path: /

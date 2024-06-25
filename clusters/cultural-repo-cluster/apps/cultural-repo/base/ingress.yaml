@@ -52,5 +52,5 @@ metadata:
 spec:
   redirectRegex:
     permanent: true
-    regex: "^https://repo.vatopedianheritage.gr(.*)"
-    replacement: "https://app.repo.vatopedianheritage.gr$1"
+    regex: "^https://repo.skopelos.gr(.*)"
+    replacement: "https://app.repo.skopelos.gr$1"

@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - stg.repo.vatopedianheritage.gr
+      - stg.repo.skopelos.gr
       secretName: cultural-repo-app-tls
   rules:
-  - host: stg.repo.vatopedianheritage.gr
+  - host: stg.repo.skopelos.gr
     http:
       paths:
         - path: /

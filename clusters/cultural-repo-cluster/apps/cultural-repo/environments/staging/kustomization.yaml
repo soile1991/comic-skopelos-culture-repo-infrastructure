@@ -21,14 +21,14 @@ configMapGenerator:
     behavior: merge
     literals:
     - DEBUG=1
-    - ALLOWED_HOSTS=api.stg.repo.vatopedianheritage.gr,.api.stg.repo.vatopedianheritage.gr
-    - APP_DOMAINS=api.stg.repo.vatopedianheritage.gr
+    - ALLOWED_HOSTS=api.stg.repo.skopelos.gr,.api.stg.repo.skopelos.gr
+    - APP_DOMAINS=api.stg.repo.skopelos.gr
     - SECRET_KEY='cultural-repo-stg-)lo8&f=(3jt3)h(gldd3y##fgqor&ipnv5zwge303g5$jy_68#dkjshwgved'
     - SQL_HOST=postgres-staging
 
   - name: frontend-config
     behavior: merge
     literals:
-    - BACKEND_URL=api.stg.repo.vatopedianheritage.gr
+    - BACKEND_URL=api.stg.repo.skopelos.gr
     - HTTP=https
-    - VIRTUAL_HOST=stg.repo.vatopedianheritage.gr
+    - VIRTUAL_HOST=stg.repo.skopelos.gr

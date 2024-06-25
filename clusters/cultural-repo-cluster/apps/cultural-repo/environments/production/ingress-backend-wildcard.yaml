@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "*.api.repo.vatopedianheritage.gr"
+        - "*.api.repo.skopelos.gr"
       secretName: cultural-repo-app-tls-backend-wildcard
   rules:
-    - host: "*.api.repo.vatopedianheritage.gr"
+    - host: "*.api.repo.skopelos.gr"
       http:
         paths:
           - path: /
