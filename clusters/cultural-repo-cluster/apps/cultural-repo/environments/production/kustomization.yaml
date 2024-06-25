@@ -55,5 +55,5 @@ configMapGenerator:
       - DB_TYPE=postgres
       - ROOT_BACKUP_FOLDER_ID=1XFY1of36z6VTjDmrGtSqWCdLirzeoL8h
       - MAX_BACKUP_FOLDER_COUNT=1
-      - CLIENT_NAME=vatopedi
+      - CLIENT_NAME=skopelos
       - APP_NAME=cultural-repo-production

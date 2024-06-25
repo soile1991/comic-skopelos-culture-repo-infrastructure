@@ -9,7 +9,7 @@ spec:
   tls:
     - hosts:
         - "api.repo.skopelos.gr"
-        - "vatopedi.api.repo.skopelos.gr"
+        - "skopelos.api.repo.skopelos.gr"
       secretName: cultural-repo-app-tls-backend
   rules:
     - host: "api.repo.skopelos.gr"
@@ -29,7 +29,7 @@ spec:
                 name: nginx-media-server-service
                 port:
                   number: 80
-    - host: "vatopedi.api.repo.skopelos.gr"
+    - host: "skopelos.api.repo.skopelos.gr"
       http:
         paths:
           - path: /

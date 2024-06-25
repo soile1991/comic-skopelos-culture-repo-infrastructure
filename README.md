@@ -45,7 +45,7 @@ flux uninstall
 flux bootstrap github \
   --components-extra=image-reflector-controller,image-automation-controller \
   --owner=$GITHUB_USER \
-  --repository=comic-vatopedi-culture-repo-infrastructure \
+  --repository=comic-skopelos-culture-repo-infrastructure \
   --branch=main \
   --path=clusters/cultural-repo-cluster \
   --read-write-key \

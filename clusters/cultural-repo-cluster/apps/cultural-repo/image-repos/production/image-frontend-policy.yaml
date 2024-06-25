@@ -8,7 +8,7 @@ spec:
   imageRepositoryRef:
     name: cultural-repo-frontend-production
   filterTags:
-    pattern: ^vatopedi-(?P<version>.*)$
+    pattern: ^skopelos-(?P<version>.*)$
     extract: $version
   policy:
     semver:
