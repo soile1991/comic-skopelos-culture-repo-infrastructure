@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cultural-repo
+  namespace: default
+spec:
+  # replicas: 3
+  minReadySeconds: 3
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: cultural-repo
+  template:
+    metadata:
+      labels:
+        app: cultural-repo
+    spec:
+      terminationGracePeriodSeconds: 30
+      imagePullSecrets:
+        - name: gitlab-registry-credentials
+      containers:
+        - name: cultural-repo-web
+          image: registry.gitlab.com/panos.soilem/comic-registry/frontend:1.0.23
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 150m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+          envFrom:
+            - configMapRef:
+                name: frontend-config

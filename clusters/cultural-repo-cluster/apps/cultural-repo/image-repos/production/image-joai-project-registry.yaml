@@ -1,0 +1,12 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: cultural-repo-joai-project-production
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  image: registry.gitlab.com/panos.soilem/comic-registry/cultural-repo-joai-project-main/joai-project
+  secretRef:
+    name: gitlab-registry-credentials
+

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cultural-repo-ingress-frontend
+  annotations:
+    # https redirect
+    traefik.ingress.kubernetes.io/router.middlewares: cultural-repo-web-production-redirect-https-production@kubernetescrd
+spec:
+  tls:
+    - hosts:
+      - 'viewer.app.repo.vatopedianheritage.gr'
+      secretName: cultural-repo-app-tls-frontend
+  rules:
+  - host: 'viewer.app.repo.vatopedianheritage.gr'
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: cultural-repo-service
+              port:
+                number: 80

@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cultural-repo-backend
+  namespace: default
+spec:
+  # replicas: 3
+  minReadySeconds: 3
+  revisionHistoryLimit: 5
+  progressDeadlineSeconds: 60
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: cultural-repo-backend
+  template:
+    metadata:
+      labels:
+        app: cultural-repo-backend
+    spec:
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: media-volume-mount
+          persistentVolumeClaim:
+            claimName: cultural-repo-media-pvc
+      imagePullSecrets:
+        - name: gitlab-registry-credentials
+      containers:
+        - name: cultural-repo-backend
+          image: registry.gitlab.com/panos.soilem/comic-registry/backend:1.0.0
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: media-volume-mount
+              mountPath: /usr/src/app/media
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "500M"
+            limits:
+              cpu: "1000m"
+              memory: "1000M"
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 20
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 120
+          envFrom:
+            - configMapRef:
+                name: backend-config
+          env:
+            - name: SQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: username
+                  optional: false
+            - name: SQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password
+                  optional: false

@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cultural-repo-ingress-joai-project
+  annotations:
+    # https redirect
+    traefik.ingress.kubernetes.io/router.middlewares: cultural-repo-web-production-redirect-https-joai-project-production@kubernetescrd,cultural-repo-web-production-redirect-to-provider-joai-project-production@kubernetescrd
+spec:
+  tls:
+    - hosts:
+        - "oai-pmh.repo.vatopedianheritage.gr"
+      secretName: cultural-repo-app-tls-joai-project
+  rules:
+    - host: "oai-pmh.repo.vatopedianheritage.gr"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cultural-repo-service-joai-project
+                port:
+                  number: 80
+          - path: /provider
+            pathType: Prefix
+            backend:
+              service:
+                name: cultural-repo-service-joai-project
+                port:
+                  number: 80

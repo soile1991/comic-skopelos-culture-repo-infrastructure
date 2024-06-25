@@ -1,0 +1,54 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cultural-repo-ingress-backend
+  annotations:
+    kubernetes.io/ingress.class: "traefik"    
+
+    # cert
+    # cert-manager.io/cluster-issuer: "letsencrypt-hetzner-cluster-issuer"
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
+
+    # rate limit
+    traefik.ingress.kubernetes.io/max-conn-amount: "10" # connection per IP
+    traefik.ingress.kubernetes.io/max-conn-extractor-func: client.ip # requests per minute per IP
+
+    # https redirect
+    # traefik.ingress.kubernetes.io/router.middlewares: soile-redirect-https@kubernetescrd
+spec:
+  tls:
+    - hosts:
+      - soilekube.duckdns.org
+      secretName: cultural-repo-app-tls-backend
+  rules:
+  - host: soilekube.duckdns.org
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: cultural-repo-service-backend
+              port:
+                number: 80
+  - host: tenant_name.soilekube.duckdns.org
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: cultural-repo-service-backend
+              port:
+                number: 80
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-https-backend
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true

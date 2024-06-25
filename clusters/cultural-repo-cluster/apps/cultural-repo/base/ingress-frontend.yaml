@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cultural-repo-ingress-frontend
+  annotations:
+    kubernetes.io/ingress.class: "traefik"    
+
+    # cert
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
+
+    # rate limit
+    traefik.ingress.kubernetes.io/max-conn-amount: "10" # connection per IP
+    traefik.ingress.kubernetes.io/max-conn-extractor-func: client.ip # requests per minute per IP
+
+    # https redirect
+    # traefik.ingress.kubernetes.io/router.middlewares: soile-redirect-https@kubernetescrd
+spec:
+  tls:
+    - hosts:
+      - 'tenant_name.soilekube.duckdns.org'
+      secretName: cultural-repo-app-tls-frontend-wildcard
+  rules:
+  - host: 'tenant_name.soilekube.duckdns.org'
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: cultural-repo-service
+              port:
+                number: 80

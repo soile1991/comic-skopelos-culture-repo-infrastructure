@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cultural-repo
+spec:
+  template:
+    spec:
+      containers:
+      - name: cultural-repo-web
+        image: registry.gitlab.com/panos.soilem/comic-registry/staging/frontend:1.0.81 # {"$imagepolicy": "flux-system:cultural-repo-frontend-staging"}
