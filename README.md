@@ -49,9 +49,7 @@ flux bootstrap github \
   --branch=main \
   --path=clusters/cultural-repo-cluster \
   --read-write-key \
-  --personal \
-  --token-auth
-  
+  --personal
   ```
 
 
