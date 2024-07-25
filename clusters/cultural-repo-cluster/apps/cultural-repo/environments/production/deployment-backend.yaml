@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
       - name: cultural-repo-backend
-        image: registry.gitlab.com/panos.soilem/comic-registry/cultural-repo/backend:skopelos-v1.0.4 # {"$imagepolicy": "flux-system:cultural-repo-backend-production"}
+        image: registry.gitlab.com/panos.soilem/comic-registry/cultural-repo/backend:skopelos-v1.0.5 # {"$imagepolicy": "flux-system:cultural-repo-backend-production"}
