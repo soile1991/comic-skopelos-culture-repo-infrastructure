@@ -38,6 +38,7 @@ configMapGenerator:
       - EMAIL_PORT=587
       - EMAIL_HOST_USER=culturalrepo@gmail.com
       - EMAIL_HOST_PASSWORD=jqcrcsxqxbtaiwtj
+      - EUROPEANA_PROVIDER_NAME=skopelos.gr
 
   - name: frontend-config
     behavior: merge
