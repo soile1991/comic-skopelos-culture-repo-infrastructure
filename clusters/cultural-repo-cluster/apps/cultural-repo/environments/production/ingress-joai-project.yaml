@@ -4,7 +4,8 @@ metadata:
   name: cultural-repo-ingress-joai-project
   annotations:
     # https redirect
-    traefik.ingress.kubernetes.io/router.middlewares: cultural-repo-web-production-redirect-https-joai-project-production@kubernetescrd,cultural-repo-web-production-redirect-to-provider-joai-project-production@kubernetescrd
+    # traefik.ingress.kubernetes.io/router.middlewares: cultural-repo-web-production-redirect-https-joai-project-production@kubernetescrd,cultural-repo-web-production-redirect-to-provider-joai-project-production@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: cultural-repo-web-production-redirect-https-joai-project-production@kubernetescrd
 spec:
   tls:
     - hosts:
