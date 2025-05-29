@@ -20,6 +20,8 @@ spec:
       labels:
         app: cultural-repo-backend
     spec:
+      securityContext:
+        fsGroup: 1001
       terminationGracePeriodSeconds: 30
       volumes:
         - name: media-volume-mount
@@ -29,6 +31,9 @@ spec:
         - name: gitlab-registry-credentials
       containers:
         - name: cultural-repo-backend
+          securityContext:
+            runAsUser: 1001
+            runAsGroup: 1001
           image: registry.gitlab.com/panos.soilem/comic-registry/backend:1.0.0
           imagePullPolicy: IfNotPresent
           volumeMounts:
