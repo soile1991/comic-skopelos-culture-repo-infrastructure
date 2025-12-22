@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-config
+  namespace: flux-system
+data:
+  CLIENT_NAME: skopelos
+  CLIENT_DOMAIN: repo.skopelos.gr
+  VIEWER_SUBDOMAIN: viewer
+  CLIENT_API_SUBDOMAIN: skopelos
+  IMAGE_TAG_PREFIX: skopelos-v
+  CULTURAL_REPO_FRONTEND_TAG: skopelos-v2.0.0 # {"$imagepolicy": "flux-system:cultural-repo-frontend-production:tag"}
+  CULTURAL_REPO_BACKEND_TAG: skopelos-v2.0.0 # {"$imagepolicy": "flux-system:cultural-repo-backend-production:tag"}
+  CULTURAL_REPO_JOAI_PROJECT_TAG: 1.0.1 # {"$imagepolicy": "flux-system:cultural-repo-joai-project-production:tag"}
+  CULTURAL_REPO_POLICY_SEMVER_RANGE: 2.0.x

@@ -1,0 +1,14 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: comic-template-infrastructure
+  namespace: flux-system
+spec:
+  url: ssh://git@github.com/soile1991/comic-cultural-repository-template-infrastructure
+  interval: 5m0s
+  ref:
+    # branch: main
+    tag: v1.0.12
+  secretRef:
+    name: flux-template-git-deploy
