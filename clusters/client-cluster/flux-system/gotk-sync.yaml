@@ -11,7 +11,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/soile1991/comic-spathareio-culture-repo-infrastructure
+  url: ssh://git@github.com/soile1991/comic-skopelos-culture-repo-infrastructure
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
