@@ -9,6 +9,6 @@ spec:
   interval: 5m0s
   ref:
     # branch: main
-    tag: v1.0.15
+    tag: v1.0.17
   secretRef:
     name: flux-template-git-deploy
